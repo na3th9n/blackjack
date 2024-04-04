@@ -1,0 +1,61 @@
+Python Classes Cheatsheet
+
+getters - methods to display the attributes of a class
+setters - methods to manipulate the object's attributes
+deleter - deletes the attribute from the object
+
+_variable (private attribute) # need a way to print the instsance variables and we use methods, @propert allows us to call the instance variables without running the method
+
+---
+
+@property - allows you to call getter methods by using the attribute name (used for private attributes)
+for ex.:
+    def __init__(self, radius):
+        self._radius = radius
+
+    @property
+    def radius(self):
+        return self._radius
+
+    instead of calling c.radius(), you can simply just write print(c.radius), recognizes it as an attribute even though the attribute is private
+
+@var.setter - allows you to manipulate the attribute without calling the method
+for ex.:
+    c.radius = 10 (note that even though _radius is private, you can just change it)
+
+so @property and then use the variable for @var.setter or @var.deleter
+
+---
+
+@staticmethod - for methods that belong to the class and not to the instance of the class. I believe you use this decorator if you don't need the self parameter or the method does not need the instance attributes to running
+
+---
+
+@classmethod - methods that use the class attributes only or static methods as they things correspond to the class itself and not the instance
+def func(cls):
+    some operation
+- as you can see, instead of self, you pass cls, and if you want to access class vars, do cls.attribute
+
+---
+
+Classes
+- self is a parameter used to access the instance of the class allowing you to use the attributes within that instance
+
+---
+
+@functools.cache - uses memoization to remember function calls for recursion, or repeated function calls with the same parameter. Speeds up runtime
+
+---
+
+@dataclass - erases the need for writing the boilerplate code for a class: __init__ (initalizing the instance variabels), __repr__ (for printing all the instance attributes), __eq__ (used to compare if two objects are the same)
+
+Python Object Oriented Programming (OOP) - For Beginners;
+- if you want instance attributes, use __init__ and self is to access those instance attributes
+- getter and setter methods used to interact with the instance attributes, best pratice to use these methods instead of directly assessing these attributes
+- inheritance - we have a general class and then we can have more specific or child classes that inherit methods or attributes from the general class
+- to do it, when you initalize the class, add the class name that you are inheriting in and you do not have to rewrite the __init__ or methods in the general class
+- if the child class has specific instance attributes, use super syntax 
+- child class methods take priority over parent class
+- @dataclass in the future when I am comfortable with doing OOP
+- use @staticmethods for organizing methods that do not need to access attributes (usually)
+- use @classmethods to manipulate class attributes (constants, logging vars)
