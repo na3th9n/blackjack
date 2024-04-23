@@ -33,7 +33,7 @@ All libraries are located in requirements.txt.
    ```sh
    pip install -r requirements.txt
    ```
-3. Run VolumeControl.py
+3. Run test.py
 
 ## Usage
 
